@@ -16,13 +16,15 @@ public class Patterns{
                  4. Inverse Triangle
                  5. Solid Pyramid
                  6. Rectangle
-                 7. Hollow Rectangle """);
+                 7. Hollow Rectangle 
+                 8. Hollow Triangle
+                 9. Butterfly""");
             System.out.println("======================================================");
             int input = read.nextInt();
             if (input == 0){
                 run = false;
             }
-            else if (input>7 || input<0) {
+            else if (input>10 || input<0) {
                 System.out.println("======================================================\n Only input from the options given fool.\n ======================================================");         
 
             }
@@ -56,7 +58,12 @@ public class Patterns{
                         m = read.nextInt();
                         HRectangle(n,m);
                         break;
-                        
+                    case 8: 
+                        HTriangle(n);
+                        break;
+                    case 9:
+                        Butterfly(n);
+                        break;
                 }
             }} while (run); 
 
@@ -131,7 +138,41 @@ public class Patterns{
                     
            } 
         }
+
+    public static void HTriangle(int n){
+        for (int i = 1; i<=n; i++){
+            if (i==1 || i==n){System.out.println("* ".repeat(i));}
+            else {System.out.println("* "+ "  ".repeat(i-2)+"*");}
+        }
+
     }
+    public static void Butterfly(int n){
+        for (int i=1; i<=n; i++)// Iterates over rows
+        {
+            System.out.println();
+        for (int j=1; j<=n*2; j++){
+            if (j<=i||j>((n*2)-i)){System.out.print("* ");} // since * increase from both sides, and they do it with relation to what row they are on, we first check before half way if column number is less than or equal to row number, if it is we print a star(say first row has 1 star, second row has 2 stars..) now we go post half way, upto double the initial value, it is still related to the row but now we need a formula, which increases value per i, the simplest way is to print a star if we are on a column greater than total columns subtracted by the row. 
+            else{System.out.print("  ");}
+            }}
+            
+        for (int i=n; i>=1; i--){
+            System.out.println();
+            for (int j=1; j<=n*2; j++){
+                if (j<=i||j>((n*2)-i)){System.out.print("* ");} // we do what we did before but the rows now change in the opposite direction.
+            else{System.out.print("  ");}
+            }}
+            System.out.println("");
+        }
+        
+    }
+
+
+
+
+
+
+
+    
 
     
 
