@@ -7,13 +7,22 @@ public class Patterns{
 
         try(Scanner read = new Scanner(System.in)){
             do {
-            System.out.println("What would you like to print? \n \n 0. END PROGRAM \n 1. Square \n 2. Hollow Square \n 3. Triangle \n 4. Inverse Triangle \n 5. Solid Pyramid \n");
+            System.out.println(""" 
+                 What would you like to print?  
+                 0. END PROGRAM  
+                 1. Square  
+                 2. Hollow Square 
+                 3. Triangle  
+                 4. Inverse Triangle
+                 5. Solid Pyramid
+                 6. Rectangle
+                 7. Hollow Rectangle """);
             System.out.println("======================================================");
             int input = read.nextInt();
             if (input == 0){
                 run = false;
             }
-            else if (input>5 || input<0) {
+            else if (input>7 || input<0) {
                 System.out.println("======================================================\n Only input from the options given fool.\n ======================================================");         
 
             }
@@ -36,6 +45,18 @@ public class Patterns{
                     
                     case 5:
                         Pyramid(n);
+                        break;
+                    case 6:
+                        System.out.println("======================================================\n Put in another number \n");
+                        int m = read.nextInt();
+                        Rectangle(n,m);
+                        break;
+                    case 7: 
+                        System.out.println("======================================================\n Put in another number \n");
+                        m = read.nextInt();
+                        HRectangle(n,m);
+                        break;
+                        
                 }
             }} while (run); 
 
@@ -96,7 +117,23 @@ public class Patterns{
         }
         System.out.println("\n==========================================");
     }
+    public static void Rectangle(int h, int w){
+        System.out.println();
+        for (int i=1; i<=h; i++){
+            System.out.println("* ".repeat(w));
+        }
+        System.out.println();
+    }
+    public static void HRectangle(int h, int w){
+        for (int i=1; i<=h; i++){
+            if (i==1||i==h){System.out.println("* ".repeat(w));}
+            else{System.out.println("* "+"  ".repeat(w-2)+"*");}
+                    
+           } 
+        }
+    }
+
     
 
-}
+
 
